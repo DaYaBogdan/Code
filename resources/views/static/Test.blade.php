@@ -5,13 +5,23 @@
 @endsection
 
 @section('content')
-    <form action="mailto:bogsm228@gmail.com" method="post" enctype="text/plain" id="testForm">
+    @if($errors->any())
+        <div class="block-error">
+            <ul>
+                @foreach ($errors->all() as $err)
+                    <li> {{ $err }} </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
+    <form action="{{ route('test.post') }}" method="post">
+        @csrf
         <div class="flex" style="flex-direction: column">
             <div class="flex">
                 <label for="FIO">
                     <p>Полное имя</p>
-                    <input class="text" type="text" name="FIO" />
+                    <input class="text" type="text" name="fio" />
                 </label>
 
                 <label for="group">
@@ -42,8 +52,8 @@
 
                 <div>
                     <p>2. Что такое переменная в контексте программирования и какова её роль в алгоритмах?</p>
-                    <textarea placeholder="Переменная -" style="resize: none; width: 600px; height: 75px" id="secondAnswer"
-                        required></textarea>
+                    <textarea placeholder="Переменная -" style="resize: none; width: 600px; height: 75px" id="question1"
+                        name="question1"></textarea>
                 </div>
 
                 <div>
@@ -65,8 +75,8 @@
                 </div>
 
                 <div class="flex">
-                    <button type="submit">Отправить</button>
-                    <button type="reset" name="reset">Отчистить форму</button>
+                    <button type="submit">Отправить </button>
+                    <button type="reset" name="reset">Отчистить</button>
                 </div>
             </fieldset>
         </div>

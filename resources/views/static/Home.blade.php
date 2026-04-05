@@ -10,31 +10,21 @@
         обработки данных HTML-форм на стороне сервера с использованием
         языка PHP»
     </h1>
-    <table>
-        <tr>
-            <td rowspan="3" colspan="2">
-                <img src="../images/another/title_photo.jpg" />
-            </td>
 
-            <td colspan="3">
-                <h1>Лабораторная работа #8</h1>
-            </td>
+    <div class="flex" style="align-items: center; justify-content: center;">
+        <img src="../images/another/title_photo.jpg" />
 
-            <td rowspan="3" colspan="2">
-                <img src="../images/another/second_title.jpg" />
-            </td>
-        </tr>
+        <div class="flex column">
+            <h1>Лабораторная работа #8</h1>
 
-        <tr colspan="2">
-            <td>
-                <h1>ФИО: Смирнов Богдан Викторович</h1>
-            </td>
-        </tr>
 
-        <tr colspan="2">
-            <td>
-                <h1>Группа: ИС/б-23-1-о</h1>
-            </td>
-        </tr>
+            <h1>ФИО: Смирнов Богдан Викторович</h1>
+
+
+            <h1>Группа: ИС/б-23-1-о</h1>
+        </div>
+
+        <img src="../images/another/second_title.jpg" />
+    </div>
     </table>
 @endsection

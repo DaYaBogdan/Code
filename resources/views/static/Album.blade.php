@@ -5,5 +5,12 @@
 @endsection
 
 @section('content')
-    <h1> Альбом </h1>
+    <div class="album">
+        @foreach($photosAndAuthors as $photo => $author)
+            <div class="photo">
+                <img src="{{ asset($path . $photo . '.jpg') }}" alt="{{ $photo }}">
+                <h3>{{ $photo }} by {{ $author }}</h3>
+            </div>
+        @endforeach
+    </div>
 @endsection

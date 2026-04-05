@@ -5,16 +5,28 @@
 @endsection
 
 @section('content')
+    @if($errors->any())
+        <div class="block-error">
+            <ul>
+                @foreach ($errors->all() as $err)
+                    <li> {{ $err }} </li>
+                @endforeach
+            </ul>
+        </div>
+    @else
+    @endif
 
-    <form action="mailto:bogsm228@gmail.com" method="post" enctype="text/plain" id="contactForm">
+    <form action="{{ route("message.post") }}" method="post" style="justify-self: center">
+        @csrf
         <div class="flex column">
-            <fieldset class="flex column" style="width: 30em">
+            <fieldset class="flex column" style="width: auto; padding: 3em;">
                 <legend>
                     <h2>Введите Контактные данные</h2>
                 </legend>
                 <div class="flex">
                     <p>ФИО</p>
-                    <input class="text" type="text" id="FIO" name="FIO" value="" placeholder="Smirnov B.V." />
+                    <input class="text" type="text" id="fio" name="fio" value="{{ old("fio") }}"
+                        placeholder="Smirnov B.V." />
                 </div>
 
                 <div class="flex">
@@ -40,22 +52,25 @@
 
                 <div class="flex">
                     <p>email</p>
-                    <input class="text" type="text" id="email" name="email" value="" placeholder="foo@gmail.com" />
+                    <input class="text" type="email" id="email" name="email" value="{{ old("email") }}"
+                        placeholder="foo@gmail.com" />
                 </div>
 
                 <div class="flex">
                     <p>Телефон</p>
-                    <input class="text" type="text" id="phone" name="phone" value="" placeholder="+7/+3..." />
+                    <input class="text" type="text" id="phone" name="phone" value="{{ old("phone") }}"
+                        placeholder="+7/+3..." />
                 </div>
 
                 <div class="flex">
                     <p>Комментарий</p>
-                    <input class="text" type="text" id="message" name="message" value="" placeholder="Ваш комментарий" />
+                    <input class="text" type="text" id="message" name="message" value="{{ old("message") }}"
+                        placeholder="Ваш комментарий" />
                 </div>
             </fieldset>
         </div>
-        <div class="flex">
-            <button type="button" onclick="prepareForm()">Отправить</button>
+        <div class="flex" style="justify-self: center">
+            <button type="submit">Отправить</button>
             <button type="reset" name="reset">Сбросить</button>
         </div>
     </form>

@@ -5,5 +5,16 @@
 @endsection
 
 @section('content')
-    <h1> Интересы </h1>
+    <ul>
+        @foreach ($interests as $type => $textArray)
+            <ol>
+                <h3>{{ $type }}</h3>
+                @foreach ($textArray as $paragraph)
+                    <li>
+                        <p>{{ $paragraph }}</p>
+                    </li>
+                @endforeach
+            </ol>
+        @endforeach
+    </ul>
 @endsection

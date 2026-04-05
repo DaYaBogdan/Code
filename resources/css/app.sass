@@ -49,15 +49,15 @@ body
     background-color: $header_color
     display: flex
     flex-direction: row
+    align-items: center
     justify-content: center
-    gap: 4%
+    gap: 3%
     position: fixed
-    top: 0
+    top: 0px
     z-index: 2
 
     a
         font: 1em sans-serif
-        margin: 1em 1em
 
 .strip 
     width: 92%
@@ -225,28 +225,19 @@ $image_border_radius: 20px
 img
     @extend %image-template
 
-.image-row 
+.album
     display: grid
     grid-template-columns: repeat(4, 1fr)
     margin-bottom: 20px
     gap: 20px
 
-.image-block 
+.photo
     @include everything_center()
 
     img
         height: $image_height - 200px
         width: $image_width - 150px
         border-radius: $image_border_radius - 10px
-
-.background
-    img
-        height: $image_height + 200px
-        width: $image_width + 50px
-        border-radius: $image_border_radius
-        position: absolute
-        top: 16%
-        left: 38%
 
 //----------------------------------------------------------
 
@@ -260,27 +251,6 @@ $dialog_button_width: 100px
     gap: 10px
     height: 50px
 
-.albumButtons
-    @extend %buttons-container-template
-    top: calc(16% + 800px + 2%)
-    left: calc(40% + 500px / 2 - 300px / 2)
-
-.dialogButtons
-    @extend %buttons-container-template
-    top: 60%
-    left: calc(50% - $dialog_button_width)
-
-    button
-        width: $dialog_button_width
-        h2
-            margin: 0px
-
-.close-button
-    @extend %buttons-container-template
-    top: 15%
-    left: calc(40% + 500px)
-    z-index: 2    
-
 button 
     background-color: $main_color
     color: $text_color
@@ -292,6 +262,8 @@ button
     cursor: pointer
     transition: all 0.3s ease
     box-shadow: $standart_box_shadow
+    min-width: 130px
+    min-height: 45px
     
     &:hover 
         background-color: $main_color

@@ -26,15 +26,15 @@ body::before {
   background-color: #1a0420;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
-  gap: 4%;
+  gap: 3%;
   position: fixed;
-  top: 0;
+  top: 0px;
   z-index: 2;
 }
 .menu a, .menu h2, .menu h3, .menu li {
   font: 1em sans-serif;
-  margin: 1em 1em;
 }
 
 .strip {
@@ -178,62 +178,21 @@ img {
   border-radius: 20px;
 }
 
-.image-row {
+.album {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-bottom: 20px;
   gap: 20px;
 }
 
-.image-block {
+.photo {
   align-items: center;
   text-align: center;
 }
-.image-block img {
+.photo img {
   height: 400px;
   width: 300px;
   border-radius: 10px;
-}
-
-.background img {
-  height: 800px;
-  width: 500px;
-  border-radius: 20px;
-  position: absolute;
-  top: 16%;
-  left: 38%;
-}
-
-.close-button, .dialogButtons, .albumButtons {
-  align-items: center;
-  text-align: center;
-  position: relative;
-  right: 0;
-  display: flex;
-  gap: 10px;
-  height: 50px;
-}
-
-.albumButtons {
-  top: calc(16% + 800px + 2%);
-  left: calc(40% + 250px - 150px);
-}
-
-.dialogButtons {
-  top: 60%;
-  left: calc(50% - 100px);
-}
-.dialogButtons button {
-  width: 100px;
-}
-.dialogButtons button h2 {
-  margin: 0px;
-}
-
-.close-button {
-  top: 15%;
-  left: calc(40% + 500px);
-  z-index: 2;
 }
 
 button {
@@ -247,6 +206,8 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 10px #d3aaff;
+  min-width: 130px;
+  min-height: 45px;
 }
 button:hover {
   background-color: #8e24aa;
