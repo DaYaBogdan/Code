@@ -15,6 +15,5 @@
     <a href="/Album">Альбом</a>
     <a href="/Message">Связь</a>
     <a href="/Test">Тест</a>
-    <a href="/History">История</a>
     <h2 id="date">date</h2>
 </div>
