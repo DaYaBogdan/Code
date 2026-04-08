@@ -1,10 +1,28 @@
+h1, .strip table h4 {
+  color: #ffffff;
+  margin: 10px 20px;
+  text-align: center;
+}
+
 a, li, h3, h2 {
   color: #ffffff;
   text-decoration: none;
 }
 
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+li {
+  text-indent: 2em;
+}
+
 body {
-  background-color: #1a0420;
+  background-color: #c8aaff;
   font-family: "Segoe UI", sans-serif;
 }
 body::before {
@@ -31,6 +49,7 @@ body::before {
   gap: 3%;
   position: fixed;
   top: 0px;
+  left: 0px;
   z-index: 2;
 }
 .menu a, .menu h2, .menu h3, .menu li {
@@ -40,50 +59,9 @@ body::before {
 .strip {
   width: 92%;
   margin: 5% 2%;
-  background-color: #29043a;
+  background-color: #1a0420;
   padding: 2%;
   border-radius: 20px;
-}
-.strip h1, .strip h4, .strip h3, .strip h2 {
-  color: #ffffff;
-  margin: 10px 20px;
-  text-align: center;
-}
-.strip p {
-  color: #ffffff;
-  margin: 0.5em;
-  text-align: left;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  align-items: center;
-  text-align: center;
-}
-
-.dropdown-button {
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #1a0420;
-  border: 3px solid #8e24aa;
-  border-radius: 20px;
-  min-width: 200px;
-  z-index: 2;
-}
-.dropdown-content li {
-  list-style: none;
-}
-
-.dropdown-content.active {
-  display: flex;
-  flex-direction: column;
-  transform: translateY(0);
-  padding: 0px;
 }
 
 .background {
@@ -100,11 +78,11 @@ body::before {
 }
 
 .strip .borderTable table {
-  border: 2px solid #d3aaff;
+  border: 2px solid #c8aaff;
   border-collapse: collapse;
 }
 .strip .borderTable td {
-  border: 2px solid #d3aaff;
+  border: 2px solid #c8aaff;
   text-align: center;
 }
 .strip table {
@@ -112,33 +90,22 @@ body::before {
   border-spacing: 50px 35px;
   width: auto;
 }
-
-.popover {
-  position: fixed;
-  width: 300px;
-  height: auto;
-  background: fixed;
-  margin: auto;
-  background-color: #ffffff;
-  z-index: 1;
-}
-
-.text, textarea, select {
+.text, .test-field, textarea, select {
   background-color: #29043a;
   color: #ffffff;
-  border: 1px solid #d3aaff;
+  border: 1px solid #c8aaff;
   border-radius: 10px;
   padding: 12px 16px;
   font-size: 16px;
   width: 100%;
   box-sizing: border-box;
-  box-shadow: 0 0 10px #d3aaff;
+  box-shadow: 0 0 10px #c8aaff;
   transition: all 0.3s ease;
 }
-.text:focus, textarea:focus, select:focus {
+.text:focus, .test-field:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: #d3aaff;
-  box-shadow: 0 0 10px #d3aaff;
+  border-color: #c8aaff;
+  box-shadow: 0 0 10px #c8aaff;
 }
 
 .accept {
@@ -161,15 +128,6 @@ select option {
 textarea {
   resize: vertical;
   min-height: 50px;
-}
-
-li {
-  list-style: none;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
 }
 
 img {
@@ -205,7 +163,7 @@ button {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 10px #d3aaff;
+  box-shadow: 0 0 10px #c8aaff;
   min-width: 130px;
   min-height: 45px;
 }
@@ -251,28 +209,42 @@ button:active {
     transform: scale(1);
   }
 }
-.dialog-window {
-  position: fixed;
-  width: 600px;
-  height: 300px;
-  top: 30%;
-  left: 36%;
-  border: 10px groove #29043a;
-  border-radius: 10px;
-  background-color: #8e24aa;
-  z-index: 2;
+@keyframes popup {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-.dialog-window h1, .dialog-window .strip h2, .strip .dialog-window h2, .dialog-window .strip h3, .strip .dialog-window h3, .dialog-window .strip h4, .strip .dialog-window h4 {
-  align-items: center;
-  text-align: center;
-  color: white;
-  margin: 40px 20px;
-}
-
-.flex {
+.flex, .block-error, .column {
   display: flex;
   gap: 3em;
 }
-.flex .column {
+
+.column, .block-error {
   flex-direction: column;
+}
+
+.block-error {
+  height: 100%;
+  width: auto;
+  background-color: #6d0303;
+  padding: 3em;
+  border-radius: 2em;
+  margin-top: 2em;
+  animation: popup 1s;
+}
+
+.test-field {
+  width: 13em;
+  height: 3em;
+}
+.test-field .enlarged {
+  width: 26em;
+}
+
+p {
+  color: #fff;
+  justify-content: stretch;
 }/*# sourceMappingURL=app.css.map */

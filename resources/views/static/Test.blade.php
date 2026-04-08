@@ -5,44 +5,31 @@
 @endsection
 
 @section('content')
-    @if($errors->any())
-        <div class="block-error">
-            <ul>
-                @foreach ($errors->all() as $err)
-                    <li> {{ $err }} </li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    <div class="flex">
+        <form action="{{ route('test.post') }}" method="post">
+            @csrf
+            <div class="column">
+                <div class="flex">
+                    <label for="fio">
+                        <p>Полное имя</p>
+                        <input class="test-field" type="text" name="fio" />
+                    </label>
 
-    <form action="{{ route('test.post') }}" method="post">
-        @csrf
-        <div class="flex" style="flex-direction: column">
-            <div class="flex">
-                <label for="FIO">
-                    <p>Полное имя</p>
-                    <input class="text" type="text" name="fio" />
-                </label>
+                    <label for="group">
+                        <p>Группа</p>
+                        <select class="test-field" name="group" id="group">
+                            <option value="IT/b-24-3-o">IT/b-24-3-o</option>
+                            <option value="IS/b-23-3-o">IS/b-23-3-o</option>
+                            <option value="PI/b-23-1-o">PI/b-23-1-o</option>
+                        </select>
+                    </label>
+                </div>
 
-                <label for="group">
-                    <p>Группа</p>
-                    <select name="group" id="group">
-                        <option value="IT/b-24-3-o">IT/b-24-3-o</option>
-                        <option value="IS/b-23-3-o">IS/b-23-3-o</option>
-                        <option value="PI/b-23-1-o">PI/b-23-1-o</option>
-                    </select>
-                </label>
-            </div>
-
-            <fieldset class="flex" style="flex-direction: column">
-                <legend>
-                    <h1>Основы программирования и алгоритмические языки</h1>
-                </legend>
 
                 <div>
                     <p>1. Какой тип данных чаще всего используется для хранения целых чисел в языках программирования?
                     </p>
-                    <select name="question1" id="question1" style="resize: none; width: 200px; height: 45px">
+                    <select class="test-field" name="question1" id="question1">
                         <option value="float">float</option>
                         <option value="int">int</option>
                         <option value="string">string</option>
@@ -52,8 +39,7 @@
 
                 <div>
                     <p>2. Что такое переменная в контексте программирования и какова её роль в алгоритмах?</p>
-                    <textarea placeholder="Переменная -" style="resize: none; width: 600px; height: 75px" id="question1"
-                        name="question1"></textarea>
+                    <textarea placeholder="Переменная -" class="test-field" id="question1" name="question1"></textarea>
                 </div>
 
                 <div>
@@ -76,9 +62,16 @@
 
                 <div class="flex">
                     <button type="submit">Отправить </button>
-                    <button type="reset" name="reset">Отчистить</button>
+                    <button type="reset">Отчистить</button>
                 </div>
-            </fieldset>
-        </div>
-    </form>
+            </div>
+        </form>
+        @if($errors->any())
+            <div class="block-error">
+                @foreach ($errors->all() as $err)
+                    <li> {{ $err }} </li>
+                @endforeach
+            </div>
+        @endif
+    </div>
 @endsection

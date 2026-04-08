@@ -9,7 +9,7 @@
         @foreach($photosAndAuthors as $photo => $author)
             <div class="photo">
                 <img src="{{ asset($path . $photo . '.jpg') }}" alt="{{ $photo }}">
-                <h3>{{ $photo }} by {{ $author }}</h3>
+                <h3>Photo by {{ $author }}</h3>
             </div>
         @endforeach
     </div>

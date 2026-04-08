@@ -1,6 +1,6 @@
 $main_color: #8e24aa
 $secondary_color: #29043a
-$triplet_color: #d3aaff
+$triplet_color: #c8aaff
 $header_color: #1a0420
 $text_color: #ffffff
 
@@ -14,21 +14,30 @@ $menu_height: 7%
     align-items: center
     text-align: center
 
+h1
+        color: $text_color
+        margin: 10px 20px
+        text-align: center
+
 a 
     color: $text_color
     text-decoration: none
 
 h2
+    font-size: 1.5em
     @extend a
 
 h3
+    font-size: 1em
+    // text-indent: 2em
     @extend a
 
 li
+    text-indent: 2em
     @extend a
 
 body
-    background-color: $header_color
+    background-color: $triplet_color
     font-family: "Segoe UI", sans-serif
     
     &::before
@@ -54,6 +63,7 @@ body
     gap: 3%
     position: fixed
     top: 0px
+    left: 0px
     z-index: 2
 
     a
@@ -62,51 +72,9 @@ body
 .strip 
     width: 92%
     margin: 5% 2%
-    background-color: $secondary_color
+    background-color: $header_color
     padding: 2%
     border-radius: 20px
-    
-    h1
-        color: $text_color
-        margin: 10px 20px
-        text-align: center
-    h2
-        @extend h1
-    h3
-        @extend h1
-    h4 
-        @extend h1
-    p
-        color: $text_color
-        margin: 0.5em
-        text-align: left
-    
-.dropdown 
-    position: relative
-    display: inline-block
-    @include everything_center()
-
-.dropdown-button 
-    cursor: pointer
-
-.dropdown-content 
-    display: none
-    position: absolute
-    background-color: $header_color
-    border: 3px solid $main_color
-    border-radius: 20px 
-    min-width: 200px
-    z-index: 2
-
-    li 
-        list-style: none
-
-
-.dropdown-content.active 
-    display: flex
-    flex-direction: column
-    transform: translateY(0)
-    padding: 0px
 
 .background 
     position: fixed
@@ -137,18 +105,8 @@ body
         border-spacing: 50px 35px
         width: auto
 
-//----------------------------------------------------------
-
-$popover_background: #ffffff
-
-.popover 
-    position: fixed
-    width: 300px
-    height: auto
-    background: fixed
-    margin: auto
-    background-color: $popover_background
-    z-index: 1
+        h4 
+            @extend h1
 
 //----------------------------------------------------------
 
@@ -192,7 +150,6 @@ $message_time: 0.6s
 .error 
     @include setupMessages($type: error)
     
-
 select
     @extend .text
     option 
@@ -203,13 +160,6 @@ textarea
     @extend .text
     resize: vertical
     min-height: 50px
-
-li 
-    list-style: none
-
-ul 
-    margin: 0
-    padding: 0
 
 //----------------------------------------------------------
 
@@ -303,28 +253,39 @@ button
     
     100% 
         transform: scale(1)
-        
-.dialog-window 
-    position: fixed
-    width: 600px
-    height: 300px
-    top: 30%
-    left: 36%
-    border: 10px groove $secondary_color
-    border-radius: $standart_box_radius
-    background-color: $main_color
-    z-index: 2
 
-    h1
-        @include everything_center()
-        color: white
-        margin: 40px 20px 
+@keyframes popup 
+    0%
+        transform: scale(0.5)
+    100%
+        transform: scale(1)
 
 .flex
     display: flex
     gap: 3em
 
-    .column
-        flex-direction: column
+.column
+    @extend .flex
+    flex-direction: column
 
+.block-error
+    @extend .flex, .column
+    height: 100%
+    width: auto
+    background-color: $error_color
+    padding: 3em
+    border-radius: 2em
+    margin-top: 2em
+    animation: popup 1s
+    
+.test-field
+    @extend .text
+    width: 13em
+    height: 3em
 
+    .enlarged
+        width: 26em
+
+p
+    color: #fff
+    justify-content: stretch
