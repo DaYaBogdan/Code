@@ -5,7 +5,7 @@
 <head>
     <title>@yield('header-title')</title>
     <meta charset="utf-8" />
-    @vite(["resources/css/app.css", "resources/js/app.js"])
+    @vite(["resources/css/2app.css", "resources/js/app.js"])
 </head>
 
 <body>

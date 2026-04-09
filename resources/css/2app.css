@@ -1,0 +1,226 @@
+h1, .strip .borderTable h4 {
+  color: #ffffff;
+  margin: 10px 20px;
+  text-align: center;
+}
+
+a, li, h3, h2 {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+li {
+  text-indent: 2em;
+}
+
+body {
+  background-color: #c8aaff;
+  font-family: "Segoe UI", sans-serif;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.menu {
+  width: 100%;
+  height: 7%;
+  background-color: #29043a;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+}
+.menu a, .menu h2, .menu h3, .menu li {
+  font: 1em sans-serif;
+}
+
+.strip {
+  width: 92%;
+  margin: 5% 2%;
+  background-color: #29043a;
+  padding: 2%;
+  border-radius: 20px;
+}
+
+.strip .borderTable table {
+  border: 2px solid #c8aaff;
+  border-collapse: collapse;
+}
+.strip .borderTable td {
+  border: 2px solid #c8aaff;
+  text-align: center;
+}
+textarea, select, .text, .test-field, button {
+  background-color: #8e24aa;
+  color: #ffffff;
+  border: 1px solid #c8aaff;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px #c8aaff;
+  transition: all 0.3s ease;
+}
+textarea:focus, select:focus, .text:focus, .test-field:focus, button:focus {
+  outline: none;
+  border-color: #8e24aa;
+  box-shadow: 0 0 10px #c8aaff;
+}
+
+button {
+  border: none;
+  margin: 1em;
+  cursor: pointer;
+  min-width: 130px;
+  max-width: 200px;
+  min-height: 45px;
+  max-height: 60px;
+}
+button:hover {
+  background-color: #c8aaff;
+  transform: scale(1.05);
+}
+button:active {
+  transform: scale(0.98);
+}
+
+.accept {
+  background-color: #036d26;
+  border: 1px solid rgb(4.3660714286, 158.6339285714, 55.3035714286);
+  animation: sizeUp 0.6s;
+}
+
+.error {
+  background-color: #6d0303;
+  border: 1px solid rgb(158.6339285714, 4.3660714286, 4.3660714286);
+  animation: sizeUp 0.6s;
+}
+
+select option {
+  background-color: #29043a;
+  color: #ffffff;
+}
+
+textarea {
+  min-height: 50px;
+}
+
+img {
+  height: 600px;
+  width: 450px;
+  border-radius: 20px;
+}
+
+.album {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.photo {
+  align-items: center;
+  text-align: center;
+}
+.photo img {
+  height: 400px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes sizeUp {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.02);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  75% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes popup {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.flex, .block-error, .column {
+  display: flex;
+  gap: 3em;
+}
+
+.column, .block-error {
+  flex-direction: column;
+}
+
+.block-error {
+  height: 100%;
+  width: auto;
+  background-color: #6d0303;
+  padding: 3em;
+  border-radius: 2em;
+  margin-top: 2em;
+  animation: popup 1s;
+}
+
+.test-field {
+  width: 13em;
+  height: 3em;
+}
+.test-field .enlarged {
+  width: 26em;
+}
+
+p {
+  color: #fff;
+  justify-content: stretch;
+}/*# sourceMappingURL=2app.css.map */

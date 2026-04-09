@@ -1,0 +1,258 @@
+$main_color: #29043a
+$secondary_color:  #8e24aa
+$accent_color: #c8aaff
+$text_color: #ffffff
+
+$standart_box_radius: 10px
+$standart_box_shadow: 0 0 10px $accent_color
+ 
+$menu_height: 7%
+
+@mixin everything_center()
+    align-items: center
+    text-align: center
+
+h1
+        color: $text_color
+        margin: 10px 20px
+        text-align: center
+
+a 
+    color: $text_color
+    text-decoration: none
+
+h2
+    font-size: 1.5em
+    @extend a
+
+h3
+    font-size: 1em
+    @extend a
+
+li
+    text-indent: 2em
+    @extend a
+
+body
+    background-color: $accent_color
+    font-family: "Segoe UI", sans-serif
+    
+    &::before
+        content: ""
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-size: cover
+        background-position: center
+        z-index: -1
+        opacity: 0.3
+
+.menu 
+    width: 100%
+    height: $menu_height
+    background-color: $main_color
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: center
+    gap: 3%
+    position: fixed
+    top: 0px
+    left: 0px
+    z-index: 2
+
+    a
+        font: 1em sans-serif
+
+.strip 
+    width: 92%
+    margin: 5% 2%
+    background-color: $main_color
+    padding: 2%
+    border-radius: 20px
+
+//----------------------------------------------------------
+
+.strip    
+    .borderTable 
+        table 
+            border: $standart_box_radius - 8px solid $accent_color
+            border-collapse: collapse
+
+        td 
+            border: $standart_box_radius - 8px solid $accent_color
+            text-align: center
+        h4 
+            @extend h1
+
+
+//----------------------------------------------------------
+
+$accept_color: #036d26
+$error_color: #6d0303
+$message_time: 0.6s
+
+@mixin setupMessages($type)
+    $main_color: #ffffff
+    @if $type == accept
+        $main_color: $accept_color
+    @else
+        $main_color: $error_color
+        
+    background-color: $main_color
+    border: 1px solid lighten($main_color, 10%)
+    animation: sizeUp $message_time
+    
+
+%interactble
+    background-color: $secondary_color
+    color: $text_color
+    border: 1px solid $accent_color
+    border-radius: $standart_box_radius
+    padding: 12px 16px
+    font-size: 16px
+    width: 100%
+    box-sizing: border-box
+    box-shadow: $standart_box_shadow
+    transition: all 0.3s ease
+
+    &:focus
+        outline: none
+        border-color: $secondary_color
+        box-shadow:  $standart_box_shadow
+
+button 
+    @extend %interactble
+    border: none
+    margin: 1em
+    cursor: pointer
+    min-width: 130px
+    max-width: 200px
+    min-height: 45px
+    max-height: 60px
+    
+    &:hover 
+        background-color: $accent_color
+        transform: scale(1.05)
+
+    &:active 
+        transform: scale(0.98)
+
+.text
+    @extend %interactble
+
+.accept 
+    @include setupMessages($type: accept)
+
+.error 
+    @include setupMessages($type: error)
+    
+select
+    @extend %interactble
+    option
+        background-color: $main_color
+        color: $text_color
+
+textarea 
+    @extend %interactble
+    min-height: 50px
+
+//----------------------------------------------------------
+
+$image_height: 600px
+$image_width: 450px
+$image_border_radius: 20px
+
+%image-template
+    height: $image_height
+    width: $image_width
+    border-radius: $image_border_radius
+
+img
+    @extend %image-template
+
+.album
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    margin-bottom: 20px
+    gap: 20px
+
+.photo
+    @include everything_center()
+
+    img
+        height: $image_height - 200px
+        width: $image_width - 150px
+        border-radius: $image_border_radius - 10px
+
+//----------------------------------------------------------
+
+@keyframes shake 
+    0% 
+        transform: translateX(0)
+    
+    25% 
+        transform: translateX(-5px)
+    
+    50% 
+        transform: translateX(5px)
+    
+    75% 
+        transform: translateX(-5px)
+    
+    100% 
+        transform: translateX(0)
+
+@keyframes sizeUp 
+    0% 
+        transform: scale(1)
+    
+    25% 
+        transform: scale(1.02)
+    
+    50% 
+        transform: scale(1.04)
+    
+    75% 
+        transform: scale(1.02)
+    
+    100% 
+        transform: scale(1)
+
+@keyframes popup 
+    0%
+        transform: scale(0.5)
+    100%
+        transform: scale(1)
+
+.flex
+    display: flex
+    gap: 3em
+
+.column
+    @extend .flex
+    flex-direction: column
+
+.block-error
+    @extend .flex, .column
+    height: 100%
+    width: auto
+    background-color: $error_color
+    padding: 3em
+    border-radius: 2em
+    margin-top: 2em
+    animation: popup 1s
+    
+.test-field
+    @extend .text
+    width: 13em
+    height: 3em
+
+    .enlarged
+        width: 26em
+
+p
+    color: #fff
+    justify-content: stretch
