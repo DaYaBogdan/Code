@@ -39,7 +39,7 @@
 
                 <div>
                     <p>2. Что такое переменная в контексте программирования и какова её роль в алгоритмах?</p>
-                    <textarea placeholder="Переменная -" class="test-field" id="question1" name="question1"></textarea>
+                    <textarea placeholder="Переменная -" class="test-field" id="question2" name="question2"></textarea>
                 </div>
 
                 <div>
