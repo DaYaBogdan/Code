@@ -27,7 +27,7 @@ class MessageRequest extends FormRequest
             'sex'=> ['required','in:male,female'],
             'email'=> ['required', 'min:5', 'max:64', 'email'],
             'phone'=>['required', 'regex:/^\+(7|3)\d{9,11}$/'],
-            'message'=> 'required',
+            'message'=> ['required', 'min:5', 'max:254'],
         ];
     }
 

@@ -256,3 +256,52 @@ img
 p
     color: #fff
     justify-content: stretch
+
+.message
+    @extend .text
+
+    width: 200px
+
+// Сброс и стилизация пагинации
+.pagination
+    display: flex !important
+    list-style: none !important
+    padding: 0 !important
+    margin: 20px 0 !important
+    justify-content: center
+    gap: 8px
+    flex-wrap: wrap
+
+    li
+        text-indent: 0 !important // Убираем ваш глобальный отступ
+        list-style-type: none !important // Убираем точки
+        
+        &::before
+            content: none !important // На случай если точки добавлены через before
+
+        a, span
+            @extend %interactble
+            display: flex !important
+            align-items: center
+            justify-content: center
+            width: 45px 
+            height: 45px
+            padding: 0 !important
+            text-decoration: none
+            font-size: 14px
+
+        // Стили для активной страницы
+        &.active span, .active
+            background-color: $accent_color !important
+            color: $main_color !important
+            cursor: default
+
+        // Стили для заблокированных кнопок (например, "Назад" на 1 странице)
+        &.disabled span
+            opacity: 0.5
+            cursor: not-allowed
+            background-color: rgba($secondary_color, 0.5)
+
+// Прячем лишний текст Tailwind "Showing 1 to 6...", если он остался
+nav div div p
+    display: none !important

@@ -1,9 +1,11 @@
 @extends('layouts.MainLayout')
 
 @section('header-title')
-    История
+    Блог
 @endsection
 
 @section('content')
-    <h1> История </h1>
+    <div class="column">
+
+    </div>
 @endsection

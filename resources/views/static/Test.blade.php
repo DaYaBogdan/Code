@@ -38,8 +38,8 @@
                 </div>
 
                 <div>
-                    <p>2. Что такое переменная в контексте программирования и какова её роль в алгоритмах?</p>
-                    <textarea placeholder="Переменная -" class="test-field" id="question2" name="question2"></textarea>
+                    <p>2. Расшифруйте следующую абревиатуру: ООП.</p>
+                    <textarea placeholder="ООП -" class="test-field" id="question2" name="question2">ООП - </textarea>
                 </div>
 
                 <div>

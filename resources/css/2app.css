@@ -72,7 +72,7 @@ body::before {
   border: 2px solid #c8aaff;
   text-align: center;
 }
-textarea, select, .text, .test-field, button {
+.pagination li a, .pagination li h2, .pagination li h3, .pagination li li, .pagination li span, textarea, select, .text, .message, .test-field, button {
   background-color: #8e24aa;
   color: #ffffff;
   border: 1px solid #c8aaff;
@@ -84,7 +84,7 @@ textarea, select, .text, .test-field, button {
   box-shadow: 0 0 10px #c8aaff;
   transition: all 0.3s ease;
 }
-textarea:focus, select:focus, .text:focus, .test-field:focus, button:focus {
+.pagination li a:focus, .pagination li h2:focus, .pagination li h3:focus, .pagination li li:focus, .pagination li span:focus, textarea:focus, select:focus, .text:focus, .message:focus, .test-field:focus, button:focus {
   outline: none;
   border-color: #8e24aa;
   box-shadow: 0 0 10px #c8aaff;
@@ -223,4 +223,49 @@ img {
 p {
   color: #fff;
   justify-content: stretch;
+}
+
+.message {
+  width: 200px;
+}
+
+.pagination {
+  display: flex !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 20px 0 !important;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pagination li {
+  text-indent: 0 !important;
+  list-style-type: none !important;
+}
+.pagination li::before {
+  content: none !important;
+}
+.pagination li a, .pagination li h2, .pagination li h3, .pagination li li, .pagination li span {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  padding: 0 !important;
+  text-decoration: none;
+  font-size: 14px;
+}
+.pagination li.active span, .pagination li .active {
+  background-color: #c8aaff !important;
+  color: #29043a !important;
+  cursor: default;
+}
+.pagination li.disabled span {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: rgba(142, 36, 170, 0.5);
+}
+
+nav div div p {
+  display: none !important;
 }/*# sourceMappingURL=2app.css.map */
