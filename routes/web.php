@@ -3,6 +3,7 @@
 use App\Http\Controllers\BasicController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogRedactorController;
+use App\Http\Controllers\BlogRedactorCSVController;
 use App\Http\Controllers\FormValidationController;
 use App\Http\Controllers\GuestBookController;
 use App\Http\Controllers\InterestsControler;
@@ -37,3 +38,7 @@ Route::get('/Blog', [BlogController::class, "getBlog"])->name("blog");
 Route::get('/BlogRedactor', [BlogRedactorController::class, "getBlogRedactor"])->name("blogRedactor");
 
 Route::post('/BlogRedactor', [BlogRedactorController::class, "submit"])->name("blogRedactor.post");
+
+Route::get('/BlogRedactorCSV', [BlogRedactorCSVController::class, "getBlogRedactorCSV"])->name("blogRedactorCSV");
+
+Route::post('/BlogRedactorCSV', [BlogRedactorCSVController::class, "submit"])->name("blogRedactorCSV.import");

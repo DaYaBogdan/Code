@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
     public function getBlog() {
+        
         return view("static.Blog");
     }
 }

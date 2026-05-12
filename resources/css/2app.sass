@@ -305,3 +305,93 @@ p
 // Прячем лишний текст Tailwind "Showing 1 to 6...", если он остался
 nav div div p
     display: none !important
+
+// Переменные (можно вынести в отдельный _variables.scss)
+$color-primary: #007bff
+$color-success: #28a745
+$color-success-dark: #218838
+$color-gray-light: #f8f9fa
+$color-gray-lighter: #e9ecef
+$color-gray-border: #f1f1f1
+$color-text: #333
+$color-white: #fff
+$shadow: 0px 8px 16px rgba(0, 0, 0, 0.2)
+$border-radius: 8px
+$border-radius-sm: 5px
+$transition: 0.2s
+
+// Контейнер навигации
+.navigation 
+  display: flex
+  align-items: center
+  gap: 1.5rem
+  background-color: $color-gray-light
+  padding: 0.8rem 1.5rem
+  border-radius: $border-radius
+
+  // Отдельная ссылка "Главная страница"
+  .home-link 
+    font-weight: bold
+    text-decoration: none
+    color: $color-primary
+    padding: 0.5rem 1rem
+    background-color: $color-gray-lighter
+    border-radius: $border-radius-sm
+    transition: $transition
+
+    &:hover 
+      background-color: $color-primary
+      color: $color-white
+    
+  
+
+  // Общие стили для dropdown
+  .dropdown 
+    position: relative
+    display: inline-block
+
+    .dropbtn 
+      background-color: $color-success
+      color: $color-white
+      padding: 0.6rem 1rem
+      font-size: 1rem
+      border: none
+      border-radius: $border-radius-sm
+      cursor: pointer
+      transition: $transition
+
+      &:hover 
+        background-color: $color-success-dark
+      
+    
+
+    .dropdown-content 
+      display: none
+      position: absolute
+      background-color: $color-white
+      min-width: 200px
+      box-shadow: $shadow
+      z-index: 1
+      border-radius: 6px
+      overflow: hidden
+      margin-top: 5px
+
+      a 
+        color: $color-text
+        padding: 10px 14px
+        text-decoration: none
+        display: block
+        transition: $transition
+
+        &:hover 
+          background-color: $color-gray-border
+          color: $color-primary
+        
+      
+    
+
+    // Показываем меню при наведении
+    &:hover .dropdown-content 
+      display: block
+    
+  

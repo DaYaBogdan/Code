@@ -9,4 +9,5 @@
     <a href="{{ route('guestbook') }}">Гостевая книга </a>
     <a href="{{ route('blog') }}">Блог</a>
     <a href="{{ route('blogRedactor') }}">Редактор Блога</a>
+    <a href="{{ route('blogRedactorCSV') }}"> Редактор Блога CSV </a>
 </div>
