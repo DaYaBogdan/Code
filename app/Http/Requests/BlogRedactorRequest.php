@@ -12,7 +12,7 @@ class BlogRedactorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,9 @@ class BlogRedactorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|max:64',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'message' => 'required|string|max:255'
         ];
     }
 }

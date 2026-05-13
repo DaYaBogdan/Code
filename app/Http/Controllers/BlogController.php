@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
     public function getBlog() {
-        
-        return view("static.Blog");
+        $blog = DB::table('blogs')->get();
+        return view("static.Blog", ['blog' => $blog]);
     }
 }
